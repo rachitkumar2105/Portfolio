@@ -8,14 +8,14 @@ const Footer = () => {
   return (
     <footer className="py-8 border-t border-border">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2 text-muted-foreground text-sm">
+        <div className="relative flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2 text-muted-foreground text-sm z-10">
             <span>© {currentYear}</span>
             <span className="gradient-text font-semibold">{personalInfo.name}</span>
             <span className="hidden sm:inline">• All rights reserved</span>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 md:absolute md:left-1/2 md:-translate-x-1/2 z-10">
             <a
               href={personalInfo.github}
               target="_blank"
@@ -38,11 +38,6 @@ const Footer = () => {
             >
               <Mail size={18} />
             </a>
-          </div>
-
-          <div className="flex items-center gap-1 text-muted-foreground text-sm">
-            <span>Built with</span>
-            <Heart size={14} className="text-red-500 fill-red-500" />
           </div>
         </div>
       </div>
