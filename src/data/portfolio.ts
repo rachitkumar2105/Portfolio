@@ -10,7 +10,7 @@ export const personalInfo = {
 export const education = [
   {
     degree: "B.Tech in Computer Science and Engineering",
-    institution: "KIIT, Bhubaneswar",
+    institution: "KIIT University",
     scoreLabel: "CGPA",
     score: "8.38",
     status: "3rd Year (Ongoing)",
@@ -24,7 +24,7 @@ export const education = [
   },
   {
     degree: "I.C.S.E, Class 10th in Science",
-    institution: "Vision International School",
+    institution: "Vision International School, Uttarpara Kotrung",
     scoreLabel: "Percentage",
     score: "89.5%",
     status: "Completed (2021)",

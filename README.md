@@ -1,73 +1,78 @@
-# Welcome to your Lovable project
+# Portfolio - Rachit Kumar Singh
 
-## Project info
+Welcome to my personal portfolio website! This project showcases my journey as a student dedicated to **learning Data Science and Machine Learning**, along with my projects and technical skills.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🚀 About Me
 
-## How can I edit this code?
+I am a **3rd-year B.Tech student in Computer Science and Engineering** at **KIIT University, Bhubaneswar**.  
+My passion lies in leveraging data to solve real-world problems. I am actively building my expertise in **Python** and **Java**, working on practical projects involving **Natural Language Processing (NLP)**, **Computer Vision**, and **Predictive Analytics**.
 
-There are several ways of editing your application.
+## ✨ Features
 
-**Use Lovable**
+*   **Modern & Responsive Design:** Built with a mobile-first approach ensuring a seamless experience across all devices.
+*   **Interactive UI:** Smooth animations and transitions powered by **Framer Motion**.
+*   **Project Showcase:** detailed cards for each project with links to live demos and GitHub repositories.
+*   **Resume Download:** Easy access to download my latest CV.
+*   **Contact Section:** Integrated contact options to connect via Email, LinkedIn, or GitHub.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## 🛠️ Tech Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+This portfolio is built using modern web technologies:
 
-**Use your preferred IDE**
+*   **Frontend Framework:** [React](https://reactjs.org/) (with [TypeScript](https://www.typescriptlang.org/))
+*   **Build Tool:** [Vite](https://vitejs.dev/) for fast development and building.
+*   **Styling:** [Tailwind CSS](https://tailwindcss.com/) for utility-first styling.
+*   **UI Components:** [Shadcn UI](https://ui.shadcn.com/) & [Radix UI](https://www.radix-ui.com/) primitives.
+*   **Animations:** [Framer Motion](https://www.framer.com/motion/).
+*   **Icons:** [Lucide React](https://lucide.dev/).
+*   **Routing:** [React Router](https://reactrouter.com/).
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 📦 Getting Started
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+To run this project locally, follow these steps:
 
-Follow these steps:
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/rachitkumar2105/Portfolio.git
+    cd Portfolio
+    ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+3.  **Run the development server:**
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+4.  **Open your browser:**
+    Navigate to `http://localhost:5173` to view the application.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+## 📂 Project Structure
+
+```
+src/
+├── components/         # Reusable UI components
+│   ├── portfolio/      # Portfolio-specific sections (Hero, About, Projects, etc.)
+│   └── ui/             # Generic UI elements (Buttons, Cards, etc.)
+├── data/               # Static data for projects, skills, and personal info
+├── pages/              # Main page views
+└── App.tsx             # Main application component
 ```
 
-**Edit a file directly in GitHub**
+## 📬 Contact
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Feel free to reach out to me!
 
-**Use GitHub Codespaces**
+*   **Email:** rachitkumar2105@gmail.com
+*   **LinkedIn:** [Rachit Kumar Singh](https://www.linkedin.com/in/rachit-kumar-singh-79429827b/)
+*   **GitHub:** [rachitkumar2105](https://github.com/rachitkumar2105)
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+---
+*Key focus: Continuous learning and hands-on experimentation in Data Science.*
