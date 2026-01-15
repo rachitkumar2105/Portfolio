@@ -1,7 +1,7 @@
 export const personalInfo = {
   name: "Rachit Kumar Singh",
-  title: "Data Scientist",
-  bio: "I am a 3rd-year B.Tech student in Computer Science and Engineering at KIIT, Bhubaneswar, with a strong interest in Data Science and Machine Learning. I enjoy working with Python and Java to build practical, project-based solutions that solve real-world problems. I am passionate about continuous learning and improving my skills through hands-on experimentation and development.",
+  title: "Learning Data Science and Machine Learning",
+  bio: "I am a 3rd-year B.Tech student in Computer Science and Engineering at KIIT, Bhubaneswar, dedicated to learning Data Science and Machine Learning. I am actively building my skills in Python and Java by working on practical projects. My focus is on continuous learning and developing my expertise through hands-on experimentation.",
   email: "rachitkumar2105@gmail.com",
   github: "https://github.com/rachitkumar2105",
   linkedin: "https://www.linkedin.com/in/rachit-kumar-singh-79429827b/",
@@ -65,6 +65,7 @@ export const projects: Project[] = [
     description: "An innovative solution using computer vision and machine learning to detect food freshness and quality through image analysis.",
     tags: ["Python", "Computer Vision", "Deep Learning", "FastAPI"],
     github: "#",
+    live: "https://freshscanx-frontend.onrender.com",
     featured: true,
   },
   {
@@ -100,7 +101,7 @@ export const projects: Project[] = [
     description: "An interactive application to measure and improve typing speed with real-time feedback and statistics.",
     tags: ["JavaScript", "Web Development", "UI/UX"],
     github: "#",
-    live: "https://tic-tac-toe-6odn.onrender.com/",
+    live: "https://typing-speed-test-ee8z.onrender.com/",
     featured: false,
   },
   {
@@ -118,7 +119,7 @@ export const projects: Project[] = [
     description: "A comprehensive banking system for managing accounts, transactions, and customer data.",
     tags: ["Java", "Database", "OOP"],
     github: "#",
-    live: "https://bank-management-system-anxqgkhyrkmbyyo9cscdmr.streamlit.app/",
+    live: "https://bank-management-system-y14x.onrender.com",
     featured: false,
   },
 ];
