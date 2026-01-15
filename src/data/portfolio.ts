@@ -7,12 +7,29 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/rachit-kumar-singh-79429827b/",
 };
 
-export const education = {
-  degree: "B.Tech in Computer Science and Engineering",
-  institution: "KIIT, Bhubaneswar",
-  cgpa: "8.38",
-  status: "3rd Year (Ongoing)",
-};
+export const education = [
+  {
+    degree: "B.Tech in Computer Science and Engineering",
+    institution: "KIIT, Bhubaneswar",
+    scoreLabel: "CGPA",
+    score: "8.38",
+    status: "3rd Year (Ongoing)",
+  },
+  {
+    degree: "I.S.C, Class 12th in Science",
+    institution: "Vision International School, Uttarpara Kotrung",
+    scoreLabel: "Percentage",
+    score: "86%",
+    status: "Completed (2023)",
+  },
+  {
+    degree: "I.C.S.E, Class 10th in Science",
+    institution: "Vision International School",
+    scoreLabel: "Percentage",
+    score: "89.5%",
+    status: "Completed (2021)",
+  },
+];
 
 export const skills = [
   { name: "Python", category: "language" },

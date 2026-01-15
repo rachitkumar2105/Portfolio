@@ -119,12 +119,7 @@ const Contact = () => {
                     </>
                   )}
                 </Button>
-                <Button asChild className="w-full sm:w-auto bg-primary hover:bg-primary/90">
-                  <a href={`mailto:${personalInfo.email}`}>
-                    <Mail className="w-4 h-4 mr-2" />
-                    Send Email
-                  </a>
-                </Button>
+
               </div>
             </motion.div>
           </motion.div>
