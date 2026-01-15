@@ -9,7 +9,7 @@ const Resume = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   // Placeholder for resume - user can update this with their actual resume link
-  const resumeUrl = "/resume.pdf";
+  const resumeUrl = "/Final Resume 2026.pdf";
 
   return (
     <section id="resume" className="py-20 relative" ref={ref}>
@@ -60,7 +60,7 @@ const Resume = () => {
                 className="bg-primary hover:bg-primary/90 w-full sm:w-auto"
                 asChild
               >
-                <a href={resumeUrl} download="resume.pdf">
+                <a href={resumeUrl} download="Rachit_Kumar_Singh_Resume.pdf">
                   <Download className="w-4 h-4 mr-2" />
                   Download Resume
                 </a>
