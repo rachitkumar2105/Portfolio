@@ -10,7 +10,7 @@ export const personalInfo = {
 export const education = [
   {
     degree: "B.Tech in Computer Science and Engineering",
-    institution: "KIIT University",
+    institution: "KIIT University, Bhubaneswar",
     scoreLabel: "CGPA",
     score: "8.38",
     status: "3rd Year (Ongoing)",
