@@ -4,7 +4,7 @@ import { Github, Linkedin, Mail, Code2 } from 'lucide-react';
 const socialLinks = [
   { icon: Github, href: 'https://github.com/rachitkumar2105', label: 'GitHub' },
   { icon: Linkedin, href: 'https://www.linkedin.com/in/rachit-kumar-singh-79429827b/', label: 'LinkedIn' },
-  { icon: Code2, href: 'https://leetcode.com/rachitkumar2105/', label: 'LeetCode' },
+  { icon: Code2, href: 'https://leetcode.com/u/TUaaHoTmYs/', label: 'LeetCode' },
   { icon: Mail, href: 'mailto:rachitkumar2105@gmail.com', label: 'Email' },
 ];
 
