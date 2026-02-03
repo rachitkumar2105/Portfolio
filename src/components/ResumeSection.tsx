@@ -75,17 +75,17 @@ export const ResumeSection = () => {
 
             <div className="flex gap-3">
               <MagneticButton
-                href="/Rachit Resume-2026.pdf"
+                href="/resume.pdf"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-primary to-glow-secondary text-primary-foreground font-medium text-sm hover:shadow-lg hover:shadow-primary/25 transition-shadow"
                 // @ts-ignore
-                download="Rachit Resume-2026.pdf"
+                download="resume.pdf"
               >
                 <Download size={16} />
                 Download
               </MagneticButton>
 
               <MagneticButton
-                href="/Rachit Resume-2026.pdf"
+                href="/resume.pdf"
                 target="_blank"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-border bg-background/50 hover:bg-muted text-foreground font-medium text-sm transition-colors"
                 rel="noopener noreferrer"
