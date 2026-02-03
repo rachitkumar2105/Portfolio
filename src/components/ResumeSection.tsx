@@ -43,7 +43,7 @@ export const ResumeSection = () => {
           >
             {/* Animated border glow */}
             <motion.div
-              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
               style={{
                 background: 'linear-gradient(90deg, transparent, hsl(var(--primary) / 0.1), transparent)',
                 backgroundSize: '200% 100%',
