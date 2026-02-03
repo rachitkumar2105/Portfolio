@@ -5,6 +5,7 @@ import { Github, Linkedin, Mail, Send, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { toast } from "sonner";
 
 const contactLinks = [
   {
@@ -39,13 +40,33 @@ export const ContactSection = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsSubmitting(false);
-    setFormData({ name: '', email: '', message: '' });
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/rachitkumar2105@gmail.com", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        toast.success("Message sent successfully!");
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        toast.error("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      toast.error("Something went wrong. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const containerVariants = {
@@ -104,7 +125,8 @@ export const ContactSection = () => {
                 <label className="text-sm text-muted-foreground mb-1.5 block">Your Name</label>
                 <Input
                   type="text"
-                  placeholder="John Doe"
+                  placeholder="Your Name"
+                  name="name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="bg-muted/50 border-border/50 focus:border-primary/50"
@@ -112,10 +134,11 @@ export const ContactSection = () => {
                 />
               </div>
               <div>
-                <label className="text-sm text-muted-foreground mb-1.5 block">Email Address</label>
+                <label className="text-sm text-muted-foreground mb-1.5 block">Your Email Address</label>
                 <Input
                   type="email"
-                  placeholder="john@example.com"
+                  name="email"
+                  placeholder="user@gmail.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="bg-muted/50 border-border/50 focus:border-primary/50"
@@ -125,6 +148,7 @@ export const ContactSection = () => {
               <div>
                 <label className="text-sm text-muted-foreground mb-1.5 block">Message</label>
                 <Textarea
+                  name="message"
                   placeholder="Tell me about your project or idea..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -132,6 +156,12 @@ export const ContactSection = () => {
                   required
                 />
               </div>
+
+              {/* FormSubmit.co Configuration helpers */}
+              <input type="hidden" name="_subject" value="New Portfolio Message!" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <Button
                   type="submit"
