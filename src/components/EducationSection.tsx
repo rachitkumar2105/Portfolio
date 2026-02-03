@@ -7,7 +7,7 @@ const educationData = [
   {
     degree: 'B.Tech in Computer Science and Engineering',
     institution: 'KIIT University, Bhubaneswar',
-    score: 'CGPA: 8.38',
+    score: 'CGPA: 8.29',
     status: '3rd Year (Ongoing)',
     isOngoing: true,
     icon: GraduationCap,
@@ -36,7 +36,7 @@ const educationData = [
 export const EducationSection = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
-  
+
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start end', 'end start']
@@ -46,7 +46,7 @@ export const EducationSection = () => {
   const xLeft1 = useTransform(scrollYProgress, [0, 0.3, 0.5, 0.7, 1], ['-100%', '0%', '0%', '0%', '-50%']);
   const xRight = useTransform(scrollYProgress, [0, 0.3, 0.5, 0.7, 1], ['100%', '0%', '0%', '0%', '50%']);
   const xLeft2 = useTransform(scrollYProgress, [0, 0.4, 0.6, 0.8, 1], ['-100%', '0%', '0%', '0%', '-50%']);
-  
+
   const parallaxValues = [xLeft1, xRight, xLeft2];
 
   return (
@@ -66,7 +66,7 @@ export const EducationSection = () => {
 
         <div className="relative max-w-4xl mx-auto">
           {/* Animated Timeline Line */}
-          <motion.div 
+          <motion.div
             className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-1 hidden md:block overflow-hidden rounded-full"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
@@ -95,9 +95,8 @@ export const EducationSection = () => {
               <motion.div
                 key={edu.degree}
                 style={{ x: parallaxValues[index] }}
-                className={`relative md:flex md:items-center ${index > 0 ? 'md:mt-20' : ''} ${
-                  edu.position === 'left' ? 'md:flex-row' : 'md:flex-row-reverse'
-                }`}
+                className={`relative md:flex md:items-center ${index > 0 ? 'md:mt-20' : ''} ${edu.position === 'left' ? 'md:flex-row' : 'md:flex-row-reverse'
+                  }`}
               >
                 {/* Card */}
                 <div className={`md:w-[calc(50%-3rem)] ${edu.position === 'left' ? 'md:pr-0' : 'md:pl-0'}`}>
@@ -105,8 +104,8 @@ export const EducationSection = () => {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={isInView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ duration: 0.5, delay: index * 0.2 }}
-                    whileHover={{ 
-                      scale: 1.03, 
+                    whileHover={{
+                      scale: 1.03,
                       y: -8,
                       boxShadow: '0 20px 40px -15px hsla(187, 85%, 53%, 0.2)'
                     }}
@@ -139,17 +138,16 @@ export const EducationSection = () => {
                       </h3>
                       <p className="text-muted-foreground text-sm mb-4">{edu.institution}</p>
                       <div className="flex flex-wrap items-center gap-3">
-                        <motion.span 
+                        <motion.span
                           className="text-primary font-semibold text-sm px-3 py-1 rounded-full bg-primary/10 border border-primary/20"
                           whileHover={{ scale: 1.05 }}
                         >
                           {edu.score}
                         </motion.span>
-                        <span className={`px-3 py-1 text-xs font-medium rounded-full ${
-                          edu.isOngoing 
-                            ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40' 
+                        <span className={`px-3 py-1 text-xs font-medium rounded-full ${edu.isOngoing
+                            ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40'
                             : 'bg-muted text-muted-foreground border border-border'
-                        }`}>
+                          }`}>
                           {edu.isOngoing && (
                             <motion.span
                               className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 mr-2"
@@ -173,19 +171,18 @@ export const EducationSection = () => {
                 <motion.div
                   initial={{ scale: 0, rotate: -180 }}
                   animate={isInView ? { scale: 1, rotate: 0 } : {}}
-                  transition={{ 
-                    duration: 0.5, 
-                    delay: index * 0.3 + 0.4, 
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.3 + 0.4,
                     type: 'spring',
                     stiffness: 200
                   }}
                   className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center justify-center z-10"
                 >
                   <motion.div
-                    className={`relative flex items-center justify-center ${
-                      edu.isOngoing ? 'w-8 h-8' : 'w-7 h-7'
-                    }`}
-                    animate={edu.isOngoing ? { 
+                    className={`relative flex items-center justify-center ${edu.isOngoing ? 'w-8 h-8' : 'w-7 h-7'
+                      }`}
+                    animate={edu.isOngoing ? {
                       boxShadow: [
                         '0 0 0 0 hsla(187, 85%, 53%, 0.4)',
                         '0 0 0 12px hsla(187, 85%, 53%, 0)',
@@ -193,11 +190,10 @@ export const EducationSection = () => {
                     } : {}}
                     transition={{ duration: 1.5, repeat: Infinity }}
                   >
-                    <div className={`w-full h-full rounded-full border-2 ${
-                      edu.isOngoing 
-                        ? 'bg-primary border-primary' 
+                    <div className={`w-full h-full rounded-full border-2 ${edu.isOngoing
+                        ? 'bg-primary border-primary'
                         : 'bg-background border-primary/60'
-                    }`}>
+                      }`}>
                       {edu.isOngoing && (
                         <span className="absolute inset-0 flex items-center justify-center">
                           <span className="w-2.5 h-2.5 rounded-full bg-primary-foreground" />
