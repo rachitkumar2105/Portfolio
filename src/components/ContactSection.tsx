@@ -188,31 +188,37 @@ export const ContactSection = () => {
           {/* Contact Info */}
           <div className="space-y-4">
             {contactLinks.map((link, index) => (
-              <motion.a
+
+              <motion.div
                 key={link.name}
-                href={link.href}
-                target={link.href.startsWith('http') ? '_blank' : undefined}
-                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 variants={itemVariants}
                 whileHover={{ x: 8, scale: 1.02 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                className="glass-card p-5 flex items-center gap-4 group"
               >
-                <motion.div
-                  whileHover={{ rotate: [0, -10, 10, 0] }}
-                  transition={{ duration: 0.5 }}
-                  className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-glow-secondary/20 flex items-center justify-center shrink-0"
+                <a
+                  href={link.href}
+                  target={link.href.startsWith('http') ? '_blank' : undefined}
+                  rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className="glass-card p-5 flex items-center gap-4 group cursor-pointer block"
                 >
-                  <link.icon className="text-primary" size={22} />
-                </motion.div>
-                <div>
-                  <p className="text-xs text-muted-foreground mb-0.5">{link.name}</p>
-                  <p className="font-medium group-hover:text-primary transition-colors">
-                    {link.handle}
-                  </p>
-                </div>
-              </motion.a>
-            ))}
+                  <motion.div
+                    whileHover={{ rotate: [0, -10, 10, 0] }}
+                    transition={{ duration: 0.5 }}
+                    className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-glow-secondary/20 flex items-center justify-center shrink-0"
+                  >
+                    <link.icon className="text-primary" size={22} />
+                  </motion.div>
+                  <div>
+                    <p className="text-xs text-muted-foreground mb-0.5">{link.name}</p>
+                    <p className="font-medium group-hover:text-primary transition-colors">
+                      {link.handle}
+                    </p>
+                  </div>
+                </a>
+              </motion.div>
+            ))
+            }
+
 
             {/* Status */}
             <motion.div
