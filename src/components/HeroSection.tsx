@@ -143,14 +143,8 @@ export const HeroSection = () => {
               { icon: Code, href: 'https://leetcode.com/u/TUaaHoTmYs/', label: 'LeetCode' },
               { icon: Mail, href: 'mailto:rachitkumar2105@gmail.com', label: 'Email' },
             ].map((social, index) => (
-              <motion.a
+              <motion.div
                 key={social.label}
-                href={social.href}
-                target={social.href.startsWith('http') ? '_blank' : undefined}
-                rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="p-3 rounded-full glass-card border border-border/50 text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300 group relative overflow-hidden"
-                whileHover={{ scale: 1.15, rotate: 5 }}
-                whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, scale: 0, rotate: -180 }}
                 animate={{ opacity: 1, scale: 1, rotate: 0 }}
                 transition={{
@@ -158,16 +152,25 @@ export const HeroSection = () => {
                   type: 'spring',
                   stiffness: 200,
                 }}
+                whileHover={{ scale: 1.15, rotate: 5 }}
+                whileTap={{ scale: 0.95 }}
               >
-                {/* Ripple effect */}
-                <motion.div
-                  className="absolute inset-0 bg-primary/30 rounded-full"
-                  initial={{ scale: 0, opacity: 1 }}
-                  whileHover={{ scale: 2, opacity: 0 }}
-                  transition={{ duration: 0.5 }}
-                />
-                <social.icon size={20} className="relative z-10" />
-              </motion.a>
+                <a
+                  href={social.href}
+                  target={social.href.startsWith('http') ? '_blank' : undefined}
+                  rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className="p-3 rounded-full glass-card border border-border/50 text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300 group relative overflow-hidden block"
+                >
+                  {/* Ripple effect */}
+                  <motion.div
+                    className="absolute inset-0 bg-primary/30 rounded-full"
+                    initial={{ scale: 0, opacity: 1 }}
+                    whileHover={{ scale: 2, opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                  />
+                  <social.icon size={20} className="relative z-10" />
+                </a>
+              </motion.div>
             ))}
           </motion.div>
         </motion.div>

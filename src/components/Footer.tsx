@@ -21,21 +21,24 @@ export const Footer = () => {
           {/* Social Icons */}
           <div className="flex items-center gap-4">
             {socialLinks.map((social, index) => (
-              <motion.a
+              <motion.div
                 key={social.label}
-                href={social.href}
-                target={social.href.startsWith('http') ? '_blank' : undefined}
-                rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="p-3 rounded-full glass-card border border-border/50 text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300"
-                whileHover={{ scale: 1.15, rotate: 5, y: -5 }}
-                whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
+                whileHover={{ scale: 1.15, rotate: 5, y: -5 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <social.icon size={20} />
-              </motion.a>
+                <a
+                  href={social.href}
+                  target={social.href.startsWith('http') ? '_blank' : undefined}
+                  rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className="p-3 rounded-full glass-card border border-border/50 text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300 block"
+                >
+                  <social.icon size={20} />
+                </a>
+              </motion.div>
             ))}
           </div>
 
