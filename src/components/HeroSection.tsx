@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, ChevronDown, Rocket } from 'lucide-react';
+import { Github, Linkedin, Mail, ChevronDown, Rocket, Code } from 'lucide-react';
 import { TypewriterText } from './TypewriterText';
 import { MagneticButton } from './MagneticButton';
 
@@ -140,6 +140,7 @@ export const HeroSection = () => {
             {[
               { icon: Github, href: 'https://github.com/rachitkumar2105', label: 'GitHub' },
               { icon: Linkedin, href: 'https://www.linkedin.com/in/rachit-kumar-singh-79429827b/', label: 'LinkedIn' },
+              { icon: Code, href: 'https://leetcode.com/u/TUaaHoTmYs/', label: 'LeetCode' },
               { icon: Mail, href: 'mailto:rachitkumar2105@gmail.com', label: 'Email' },
             ].map((social, index) => (
               <motion.a
