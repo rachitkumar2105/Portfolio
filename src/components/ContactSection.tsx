@@ -23,7 +23,7 @@ const contactLinks = [
   {
     name: 'Email',
     handle: 'rachitkumar2105@gmail.com',
-    href: 'mailto:rachitkumar2105@gmail.com',
+    href: 'https://mail.google.com/mail/?view=cm&fs=1&to=rachitkumar2105@gmail.com',
     icon: Mail,
   },
 ];
