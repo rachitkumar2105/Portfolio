@@ -6,17 +6,20 @@ import { useRef, useState } from 'react';
 const skills = [
   { name: 'Python', category: 'Languages', color: 'from-cyan-400 to-cyan-600', bgColor: 'bg-cyan-500/10', borderColor: 'border-cyan-500/30', textColor: 'text-cyan-400' },
   { name: 'Java', category: 'Languages', color: 'from-cyan-400 to-cyan-600', bgColor: 'bg-cyan-500/10', borderColor: 'border-cyan-500/30', textColor: 'text-cyan-400' },
-  { name: 'Machine Learning', category: 'Core Skills', color: 'from-purple-400 to-purple-600', bgColor: 'bg-purple-500/10', borderColor: 'border-purple-500/30', textColor: 'text-purple-400' },
   { name: 'SQL', category: 'Languages', color: 'from-yellow-400 to-yellow-600', bgColor: 'bg-yellow-500/10', borderColor: 'border-yellow-500/30', textColor: 'text-yellow-400' },
+  { name: 'PyTorch', category: 'Libraries', color: 'from-green-400 to-green-600', bgColor: 'bg-green-500/10', borderColor: 'border-green-500/30', textColor: 'text-green-400' },
+  { name: 'TensorFlow', category: 'Libraries', color: 'from-green-400 to-green-600', bgColor: 'bg-green-500/10', borderColor: 'border-green-500/30', textColor: 'text-green-400' },
+  { name: 'Scikit-Learn', category: 'Libraries', color: 'from-green-400 to-green-600', bgColor: 'bg-green-500/10', borderColor: 'border-green-500/30', textColor: 'text-green-400' },
   { name: 'Pandas', category: 'Libraries', color: 'from-green-400 to-green-600', bgColor: 'bg-green-500/10', borderColor: 'border-green-500/30', textColor: 'text-green-400' },
   { name: 'NumPy', category: 'Libraries', color: 'from-green-400 to-green-600', bgColor: 'bg-green-500/10', borderColor: 'border-green-500/30', textColor: 'text-green-400' },
-  { name: 'Scikit-Learn', category: 'Libraries', color: 'from-green-400 to-green-600', bgColor: 'bg-green-500/10', borderColor: 'border-green-500/30', textColor: 'text-green-400' },
   { name: 'NLP', category: 'Core Skills', color: 'from-purple-400 to-purple-600', bgColor: 'bg-purple-500/10', borderColor: 'border-purple-500/30', textColor: 'text-purple-400' },
-  { name: 'Tableau', category: 'Tools', color: 'from-rose-400 to-rose-600', bgColor: 'bg-rose-500/10', borderColor: 'border-rose-500/30', textColor: 'text-rose-400' },
-  { name: 'Statistics', category: 'Core Skills', color: 'from-purple-400 to-purple-600', bgColor: 'bg-purple-500/10', borderColor: 'border-purple-500/30', textColor: 'text-purple-400' },
-  { name: 'Flask', category: 'Frameworks', color: 'from-amber-400 to-amber-600', bgColor: 'bg-amber-500/10', borderColor: 'border-amber-500/30', textColor: 'text-amber-400' },
+  { name: 'Machine Learning', category: 'Core Skills', color: 'from-purple-400 to-purple-600', bgColor: 'bg-purple-500/10', borderColor: 'border-purple-500/30', textColor: 'text-purple-400' },
   { name: 'FastAPI', category: 'Frameworks', color: 'from-amber-400 to-amber-600', bgColor: 'bg-amber-500/10', borderColor: 'border-amber-500/30', textColor: 'text-amber-400' },
-  { name: 'Keras', category: 'Libraries', color: 'from-green-400 to-green-600', bgColor: 'bg-green-500/10', borderColor: 'border-green-500/30', textColor: 'text-green-400' },
+  { name: 'GitHub', category: 'Tools', color: 'from-rose-400 to-rose-600', bgColor: 'bg-rose-500/10', borderColor: 'border-rose-500/30', textColor: 'text-rose-400' },
+  { name: 'Render', category: 'Tools', color: 'from-rose-400 to-rose-600', bgColor: 'bg-rose-500/10', borderColor: 'border-rose-500/30', textColor: 'text-rose-400' },
+  { name: 'Vercel', category: 'Tools', color: 'from-rose-400 to-rose-600', bgColor: 'bg-rose-500/10', borderColor: 'border-rose-500/30', textColor: 'text-rose-400' },
+  { name: 'MySQL', category: 'Tools', color: 'from-rose-400 to-rose-600', bgColor: 'bg-rose-500/10', borderColor: 'border-rose-500/30', textColor: 'text-rose-400' },
+  { name: 'Tableau', category: 'Tools', color: 'from-rose-400 to-rose-600', bgColor: 'bg-rose-500/10', borderColor: 'border-rose-500/30', textColor: 'text-rose-400' },
 ];
 
 const categories = [

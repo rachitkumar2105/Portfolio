@@ -49,7 +49,7 @@ export const AboutSection = () => {
 
 
 
-  const aboutText = "I am a 3rd-year B.Tech student in Computer Science and Engineering at KIIT, Bhubaneswar, dedicated to learning Data Science and Machine Learning. I am actively building my skills in Python and Java by working on practical projects. My focus is on continuous learning and developing my expertise through hands-on experimentation.";
+  const aboutText = "Aspiring Data Scientist and Machine Learning enthusiast with hands-on experience in building end-to-end ML and automation solutions. Developed projects like Fresh Scan X for predictive analysis and an Intelligent Invoice Processing system to automate data extraction and validation. Skilled in data analysis, model optimization, and applying AI to solve real-world business problems.";
 
   return (
     <section id="about" className="py-24 relative" ref={ref}>

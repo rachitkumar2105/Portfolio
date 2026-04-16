@@ -4,7 +4,7 @@ import { TypewriterText } from './TypewriterText';
 import { MagneticButton } from './MagneticButton';
 
 const roles = [
-  'Data Science Enthusiast',
+  'Data Science & ML',
   'Machine Learning Developer',
   'Python Developer',
   'Problem Solver',
@@ -86,9 +86,8 @@ export const HeroSection = () => {
             variants={itemVariants}
             className="max-w-2xl mx-auto text-muted-foreground leading-relaxed"
           >
-            I am a 3rd-year B.Tech student in Computer Science and Engineering at KIIT,
-            Bhubaneswar, dedicated to learning Data Science and Machine Learning. I am
-            actively building my skills in Python and Java by working on practical projects.
+            Aspiring Data Scientist and Machine Learning enthusiast with hands-on experience in building end-to-end ML and automation solutions.
+            Currently pursuing B.Tech in CSE at KIIT University, Bhubaneswar.
           </motion.p>
 
           <motion.div

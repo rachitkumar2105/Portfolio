@@ -6,27 +6,27 @@ import { MagneticButton } from './MagneticButton';
 
 const featuredProjects = [
   {
-    title: 'AI DOST',
-    description: 'AI DOST is an intelligent assistant platform that leverages artificial intelligence to provide smart, contextual, and user-friendly solutions.',
-    tags: ['Python', 'AI/ML', 'FastAPI', 'NLP'],
+    title: 'SupportGPT',
+    description: 'An AI-powered system built with Groq LLM and PDF processing to enable users to upload documents and get instant, context-aware answers through a chat interface.',
+    tags: ['FastAPI', 'SQLAlchemy', 'Groq LLM', 'PyPDF2'],
     featured: true,
-    thumbnail: '/images/ai-dost.png',
-    github: 'https://github.com/rachitkumar2105',
-    demo: 'https://ai-dost-one.vercel.app/',
+    thumbnail: '/images/support-gpt.png',
+    github: 'https://github.com/rachitkumar2105/SupportGPT',
+    demo: 'https://support-gpt.vercel.app/',
   },
   {
-    title: 'Sugar Sense',
-    description: 'A health-focused application that helps users monitor and manage blood sugar levels with predictive analytics and personalized recommendations.',
-    tags: ['Python', 'ML', 'Healthcare', 'Data Analysis'],
+    title: 'Churn Prediction',
+    description: 'An end-to-end customer churn prediction platform using machine learning to identify at-risk customers with actionable insights and retention recommendations.',
+    tags: ['Python', 'Scikit-Learn', 'FastAPI', 'React'],
     featured: true,
-    thumbnail: '/images/sugar-sense.jpg',
-    github: 'https://github.com/rachitkumar2105',
-    demo: 'https://sugar-sense.onrender.com',
+    thumbnail: '/images/churn-prediction.png',
+    github: 'https://github.com/rachitkumar2105/Churn-Prediction',
+    demo: 'https://churn-prediction-pi.vercel.app/',
   },
   {
     title: 'Fresh ScanX',
-    description: 'An innovative solution using computer vision and machine learning to detect food freshness and quality through image analysis.',
-    tags: ['Python', 'Computer Vision', 'Deep Learning', 'FastAPI'],
+    description: 'An AI-based system using a fine-tuned EfficientNet-B0 (CNN) model that analyzes fruit images to classify freshness (fresh/rotten) and estimate confidence.',
+    tags: ['Python', 'CNN', 'OpenCV', 'PyTorch'],
     featured: true,
     thumbnail: '/images/fresh-scanx.jpg',
     github: 'https://github.com/rachitkumar2105',
@@ -35,6 +35,22 @@ const featuredProjects = [
 ];
 
 const otherProjects = [
+  {
+    title: 'AI DOST',
+    description: 'An intelligent assistant platform that leverages AI to provide smart, contextual, and user-friendly solutions.',
+    tags: ['Python', 'FastAPI', 'NLP'],
+    thumbnail: '/images/ai-dost.png',
+    github: 'https://github.com/rachitkumar2105',
+    demo: 'https://ai-dost-one.vercel.app/',
+  },
+  {
+    title: 'Sugar Sense',
+    description: 'A health-focused application that helps users monitor and manage blood sugar levels with predictive analytics.',
+    tags: ['Python', 'ML', 'Healthcare'],
+    thumbnail: '/images/sugar-sense.jpg',
+    github: 'https://github.com/rachitkumar2105',
+    demo: 'https://sugar-sense.onrender.com',
+  },
   {
     title: 'Word Guesser',
     description: 'Word Guesser is an interactive word-guessing game that challenges users to predict hidden words through logical clues.',

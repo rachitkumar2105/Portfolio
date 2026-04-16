@@ -53,7 +53,7 @@ export const Footer = () => {
 
           {/* Copyright */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-2 text-sm text-muted-foreground text-center">
-            <p>© 2024 Rachit Kumar Singh. All rights reserved.</p>
+            <p>© 2026 Rachit Kumar Singh. All rights reserved.</p>
           </div>
         </div>
       </div>
