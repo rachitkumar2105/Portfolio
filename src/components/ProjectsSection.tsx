@@ -15,15 +15,6 @@ const featuredProjects = [
     demo: 'https://support-gpt.vercel.app/',
   },
   {
-    title: 'Churn Prediction',
-    description: 'An end-to-end customer churn prediction platform using machine learning to identify at-risk customers with actionable insights and retention recommendations.',
-    tags: ['Python', 'Scikit-Learn', 'FastAPI', 'React'],
-    featured: true,
-    thumbnail: '/images/churn-prediction.png',
-    github: 'https://github.com/rachitkumar2105/Churn-Prediction',
-    demo: 'https://churn-prediction-pi.vercel.app/',
-  },
-  {
     title: 'Fresh ScanX',
     description: 'An AI-based system using a fine-tuned EfficientNet-B0 (CNN) model that analyzes fruit images to classify freshness (fresh/rotten) and estimate confidence.',
     tags: ['Python', 'CNN', 'OpenCV', 'PyTorch'],
@@ -66,41 +57,7 @@ const otherProjects = [
     thumbnail: '/images/smart-movie.jpg',
     demo: 'https://smart-movie-recommendation.onrender.com',
   },
-  {
-    title: 'Book Recommendations System',
-    description: 'An intelligent book recommendation engine that analyzes reading patterns and preferences to suggest relevant books.',
-    tags: ['Python', 'ML', 'NLP'],
-    thumbnail: '/images/book-recommendation.jpg',
-    demo: 'https://book-recommendations-system-muy7.onrender.com',
-  },
-  {
-    title: 'Chess Game',
-    description: 'A fully functional chess game with an intuitive UI and game logic implementation.',
-    tags: ['Python', 'Game Development', 'Logic'],
-    thumbnail: '/images/chess.jpg',
-    demo: 'https://chessgame16oc07.lovable.app',
-  },
-  {
-    title: 'Typing Speed Test',
-    description: 'An interactive application to measure and improve typing speed with real-time feedback and statistics.',
-    tags: ['JavaScript', 'Web Development', 'UI/UX'],
-    thumbnail: '/images/typing-speed.jpg',
-    demo: 'https://typing-speed-test-ee8z.onrender.com/',
-  },
-  {
-    title: 'Tic Tac Toe',
-    description: 'A classic tic-tac-toe game with a clean interface and optional AI opponent.',
-    tags: ['JavaScript', 'Game', 'Logic'],
-    thumbnail: '/images/tic-tac-toe.jpg',
-    demo: 'https://tic-tac-toe-6odn.onrender.com/',
-  },
-  {
-    title: 'Bank Management System',
-    description: 'A comprehensive banking system for managing accounts, transactions, and customer data.',
-    tags: ['Java', 'Database', 'OOP'],
-    thumbnail: '/images/bank-management.jpg',
-    demo: 'https://bank-management-system-y14x.onrender.com',
-  },
+
 ];
 
 export const ProjectsSection = () => {
@@ -108,7 +65,6 @@ export const ProjectsSection = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
   const [hoveredOther, setHoveredOther] = useState<number | null>(null);
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
