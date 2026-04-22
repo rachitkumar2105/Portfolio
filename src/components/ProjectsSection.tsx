@@ -19,7 +19,7 @@ const featuredProjects = [
     description: 'An AI-based system using a fine-tuned EfficientNet-B0 (CNN) model that analyzes fruit images to classify freshness (fresh/rotten) and estimate confidence.',
     tags: ['Python', 'CNN', 'OpenCV', 'PyTorch'],
     featured: true,
-    thumbnail: '/images/fresh-scanx.jpg',
+    thumbnail: '/images/fresh-scanx-v2.png',
     github: 'https://github.com/rachitkumar2105',
     demo: 'https://fresh-scan-x.vercel.app/',
   },
