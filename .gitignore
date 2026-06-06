@@ -1,0 +1,10 @@
+# OS-generated files
+desktop.ini
+Thumbs.db
+.DS_Store
+
+# Local/temp scripts and logs
+*.log
+*.pyc
+__pycache__/
+read_docx.py
