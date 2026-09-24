@@ -380,11 +380,13 @@ body.dark .beyond-quote-mark{color:var(--accent-tag-bg)}
 
 /* ══ FOOTER ══ */
 footer{border-top:var(--border-section);padding:24px 0}
-.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-inner{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px}
+.footer-inner .footer-copy{justify-self:start}
+.footer-inner .footer-clock{justify-self:end}
 .footer-clock{font-family:var(--font-mono);font-size:12px;color:var(--text-muted)}
 .resume-updated{font-family:var(--font-mono);font-size:12px;color:var(--text-muted);margin:-28px 0 32px}
 .footer-copy{font-family:var(--font-body);font-size:13px;color:var(--text-muted)}
-.footer-links{display:flex;gap:20px;list-style:none}
+.footer-links{display:flex;gap:36px;list-style:none;justify-self:center}
 .footer-links a{font-family:var(--font-body);font-size:13px;color:var(--text-secondary);transition:color .2s ease}
 .footer-links a:hover{color:var(--accent-gold)}
 
@@ -465,7 +467,8 @@ section{padding:64px 0}
 .contact-h2{font-size:clamp(28px,5vw,40px)}
 
 /* Footer */
-.footer-inner{flex-direction:column;text-align:center}
+.footer-inner{grid-template-columns:1fr;justify-items:center;text-align:center}
+.footer-inner .footer-copy,.footer-inner .footer-clock,.footer-links{justify-self:center}
 .footer-links{flex-wrap:wrap;justify-content:center}
 }
 
@@ -1215,12 +1218,12 @@ section{padding:48px 0}
 <footer>
 <div class="container"><div class="footer-inner">
 <span class="footer-copy">© 2026 Rachit Kumar Singh. All rights reserved.</span>
-<span class="footer-clock"><span class="live-clock" data-clock>--</span></span>
 <ul class="footer-links">
 <li><a href="https://github.com/rachitkumar2105" target="_blank" rel="noopener" data-hover>GitHub</a></li>
 <li><a href="https://www.linkedin.com/in/rachit-kumar-singh-79429827b/" target="_blank" rel="noopener" data-hover>LinkedIn</a></li>
 <li><a href="mailto:rachitkumar2105@gmail.com" data-hover>Email</a></li>
 </ul>
+<span class="footer-clock"><span class="live-clock" data-clock>--</span></span>
 </div></div>
 </footer>
 
