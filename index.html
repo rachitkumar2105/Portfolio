@@ -421,7 +421,6 @@ section{padding:64px 0}
 
 /* Hero */
 .hero-grid{grid-template-columns:1fr}
-.hero-right{display:none}
 .hero-stats{grid-template-columns:repeat(2,1fr);gap:16px}
 .hero h1{font-size:clamp(36px,7vw,56px)}
 
@@ -539,6 +538,45 @@ section{padding:48px 0}
 /* Learning */
 .learning-h2{font-size:30px}
 }
+
+/* ══ MOBILE / TABLET REFINEMENTS ══ */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+.nav-left{min-width:0}
+.nav-name{white-space:nowrap}
+#mobile-menu{overflow-y:auto;-webkit-overflow-scrolling:touch}
+.menu-close{position:absolute;top:14px;right:16px;width:48px;height:48px;border-radius:50%;border:var(--border-card);background:var(--bg-card);color:var(--text-heading);display:none;align-items:center;justify-content:center;font-size:26px;line-height:1;z-index:1003;cursor:pointer}
+#mobile-menu.open .menu-close{display:flex}
+.menu-close:focus-visible{outline:2px solid var(--accent-gold);outline-offset:2px}
+@media(max-width:1240px){
+.nav-right{margin-left:auto;margin-right:6px}
+.hamburger{padding:10px;min-width:44px;min-height:44px;align-items:center;justify-content:center;margin-right:-10px}
+}
+@media(max-width:768px){
+#hero{min-height:auto;padding:28px 0 56px}
+.hero-right{display:block;order:-1;max-width:340px;width:100%;margin:0 auto 4px}
+.hero-img{height:300px}
+.hero-h1{margin-top:4px}
+.icon-btn{width:44px;height:44px}
+.icon-btn svg{width:20px;height:20px}
+.resume-viewer iframe{display:none}
+.resume-viewer-actions{border-top:none}
+.nav-logo-box{width:36px;height:36px}
+#theme-toggle{width:40px;height:40px}
+.project-card{padding:22px}
+.learning-pill{padding:10px 16px}
+.contact-card-wrap{border-radius:12px}
+}
+@media(max-width:400px){
+.nav-name{font-size:14px}
+.nav-left{gap:8px}
+.hero-h1{font-size:34px}
+}
+@media(max-height:520px) and (orientation:landscape){
+#hero{min-height:auto;padding:24px 0 40px}
+.hero-img{height:220px}
+#mobile-menu{flex-direction:row;flex-wrap:wrap;justify-content:center;align-content:center;gap:14px 30px;padding:70px 24px 24px}
+#mobile-menu a{font-size:26px}
+}
 </style>
 </head>
 <body>
@@ -567,6 +605,7 @@ section{padding:48px 0}
 </nav>
 <div id="mobile-menu">
 <a href="#about" data-hover>About</a><a href="#experience" data-hover>Experience</a><a href="#education" data-hover>Education</a><a href="#projects" data-hover>Projects</a><a href="#skills" data-hover>Skills</a><a href="#certifications" data-hover>Certifications</a><a href="#resume" data-hover>Resume</a><a href="#contact" data-hover>Contact</a>
+<button type="button" class="menu-close" id="menu-close" aria-label="Close menu">&times;</button>
 </div>
 
 <!-- 1. HERO -->
@@ -1291,8 +1330,16 @@ secs.forEach(function(s){so2.observe(s)});
 
 /* Hamburger */
 var hb=document.getElementById('hamburger'),mm=document.getElementById('mobile-menu');
-hb.addEventListener('click',function(){hb.classList.toggle('active');mm.classList.toggle('open');document.body.style.overflow=mm.classList.contains('open')?'hidden':''});
-mm.querySelectorAll('a').forEach(function(l){l.addEventListener('click',function(){hb.classList.remove('active');mm.classList.remove('open');document.body.style.overflow=''})});
+var menuOpen=false;
+function setMenu(open){menuOpen=open;hb.classList.toggle('active',open);mm.classList.toggle('open',open);hb.setAttribute('aria-expanded',open?'true':'false');document.body.style.overflow=open?'hidden':''}
+function openMenu(){if(menuOpen)return;setMenu(true);try{history.pushState({menu:1},'')}catch(e){}}
+function closeMenu(){if(!menuOpen)return;setMenu(false);if(history.state&&history.state.menu){try{history.back()}catch(e){}}}
+hb.addEventListener('click',function(){menuOpen?closeMenu():openMenu()});
+document.getElementById('menu-close').addEventListener('click',closeMenu);
+window.addEventListener('popstate',function(){if(menuOpen)setMenu(false)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu()});
+window.addEventListener('resize',function(){if(menuOpen&&window.innerWidth>1240)closeMenu()});
+mm.querySelectorAll('a').forEach(function(l){l.addEventListener('click',function(){if(!menuOpen)return;setMenu(false);try{history.replaceState(null,'')}catch(e){}})});
 
 /* Theme */
 var tg=document.getElementById('theme-toggle');var sv=localStorage.getItem('theme')||'light';
