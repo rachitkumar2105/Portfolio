@@ -58,7 +58,7 @@
   cards.forEach(c => io.observe(c));
 })();
 
-/* Rails: endless row drifting right, draggable either way */
+/* Rails: endless row moving right to left, draggable either way */
 (() => {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const rails = [];
@@ -150,8 +150,8 @@
       rails.forEach(({ rail, st }) => {
         if (!st.period || !st.visible || st.hover || st.focus || st.drag || now < st.resumeAt) return;
         if (Math.abs(rail.scrollLeft - st.pos) > 2) st.pos = rail.scrollLeft;
-        st.pos -= (Number(rail.dataset.speed || 32) * rootK() * dt) / 1000;
-        if (st.pos < st.period * 0.5) st.pos += st.period;
+        st.pos += (Number(rail.dataset.speed || 32) * rootK() * dt) / 1000;
+        if (st.pos > st.period * 2) st.pos -= st.period;
         rail.scrollLeft = st.pos;
       });
     }
