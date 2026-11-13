@@ -61,6 +61,7 @@
 /* Rails: endless row moving right to left, draggable either way */
 (() => {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const canHover = matchMedia('(hover: hover) and (pointer: fine)').matches;
   const rails = [];
   let _k = 1, _kAt = 0;
   const rootK = () => { const n = performance.now(); if (n - _kAt > 1000) { _k = (parseFloat(getComputedStyle(document.documentElement).fontSize) || 16) / 16; _kAt = n; } return _k; };
@@ -68,8 +69,7 @@
   function makeRail(rail) {
     const track = rail.querySelector('.track');
     const originals = [...track.children];
-    const speed = Number(rail.dataset.speed || 32);
-    const st = { pos: 0, period: 0, paused: false, hover: false, focus: false, drag: false, visible: true, resumeAt: 0 };
+    const st = { pos: 0, v: 0, period: 0, drag: false, touch: false, kbd: false, visible: true, resumeAt: 0 };
 
     function rebuild() {
       track.querySelectorAll('[data-clone]').forEach(c => c.remove());
@@ -97,16 +97,16 @@
       else if (rail.scrollLeft > st.period * 2) rail.scrollLeft -= st.period;
     }
 
-    const hold = (ms = 1600) => { st.resumeAt = performance.now() + ms; };
+    const hold = ms => { st.resumeAt = Math.max(st.resumeAt, performance.now() + ms); };
 
-    rail.addEventListener('mouseenter', () => { st.hover = true; });
-    rail.addEventListener('mouseleave', () => { st.hover = false; hold(600); });
-    rail.addEventListener('focusin', () => { st.focus = true; });
-    rail.addEventListener('focusout', () => { st.focus = false; hold(); });
     rail.addEventListener('scroll', normalise, { passive: true });
-    rail.addEventListener('wheel', () => hold(), { passive: true });
-    rail.addEventListener('touchstart', () => hold(4000), { passive: true });
-    rail.addEventListener('toggle', () => hold(6000), true);
+    rail.addEventListener('wheel', () => hold(700), { passive: true });
+    rail.addEventListener('touchstart', () => { st.touch = true; }, { passive: true });
+    const touchEnd = () => { st.touch = false; hold(900); };
+    rail.addEventListener('touchend', touchEnd, { passive: true });
+    rail.addEventListener('touchcancel', touchEnd, { passive: true });
+    rail.addEventListener('focusin', e => { st.kbd = e.target.matches(':focus-visible'); });
+    rail.addEventListener('focusout', () => { st.kbd = false; });
 
     let startX = 0, startLeft = 0, moved = 0;
     rail.addEventListener('pointerdown', e => {
@@ -120,20 +120,26 @@
       if (moved > 4) rail.classList.add('dragging');
       rail.scrollLeft = startLeft - dx;
       const before = rail.scrollLeft; normalise(); startLeft += rail.scrollLeft - before;
+      st.pos = rail.scrollLeft; st.v = 0;
     });
-    const end = e => { if (!st.drag) return; st.drag = false; rail.classList.remove('dragging'); hold(); try { rail.releasePointerCapture(e.pointerId); } catch {} };
+    const end = e => {
+      if (!st.drag) return;
+      st.drag = false; rail.classList.remove('dragging');
+      try { rail.releasePointerCapture(e.pointerId); } catch {}
+      if (moved > 4) rail.blur();
+    };
     rail.addEventListener('pointerup', end); rail.addEventListener('pointercancel', end);
     rail.addEventListener('click', e => { if (moved > 4) { e.preventDefault(); e.stopPropagation(); moved = 0; } }, true);
 
     rail.addEventListener('keydown', e => {
       if (e.target !== rail) return;
       if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-        e.preventDefault(); hold(3000);
+        e.preventDefault(); hold(1500);
         rail.scrollBy({ left: (e.key === 'ArrowRight' ? 240 : -240) * rootK(), behavior: reduce ? 'auto' : 'smooth' });
       }
     });
 
-    if ('IntersectionObserver' in window) new IntersectionObserver(es => es.forEach(x => { st.visible = x.isIntersecting; })).observe(rail);
+    if ('IntersectionObserver' in window) new IntersectionObserver(es => es.forEach(x => { st.visible = x.isIntersecting; }), { rootMargin: '100px 0px' }).observe(rail);
 
     rebuild();
     const r = { rail, st, rebuild, originals };
@@ -145,15 +151,20 @@
 
   let last = performance.now();
   function frame(now) {
-    const dt = Math.min(64, now - last); last = now;
+    const dt = Math.min(50, now - last); last = now;
     if (!reduce && !document.hidden) {
-      rails.forEach(({ rail, st }) => {
-        if (!st.period || !st.visible || st.hover || st.focus || st.drag || now < st.resumeAt) return;
+      for (const { rail, st } of rails) {
+        if (!st.period || !st.visible) continue;
+        const hovered = canHover && rail.matches(':hover');
+        const paused = hovered || st.drag || st.touch || st.kbd || now < st.resumeAt;
+        const target = paused ? 0 : Number(rail.dataset.speed || 32) * rootK();
+        st.v += (target - st.v) * Math.min(1, dt / 180);
+        if (st.v < 0.5 && paused) { st.v = 0; st.pos = rail.scrollLeft; continue; }
         if (Math.abs(rail.scrollLeft - st.pos) > 2) st.pos = rail.scrollLeft;
-        st.pos += (Number(rail.dataset.speed || 32) * rootK() * dt) / 1000;
+        st.pos += (st.v * dt) / 1000;
         if (st.pos > st.period * 2) st.pos -= st.period;
         rail.scrollLeft = st.pos;
-      });
+      }
     }
     requestAnimationFrame(frame);
   }
