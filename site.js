@@ -41,9 +41,12 @@
 (() => {
   const clock = document.getElementById('clock');
   if (clock) {
-    const fmt = new Intl.DateTimeFormat('en-IN', { hour: '2-digit', minute: '2-digit', hour12: true, timeZone: 'Asia/Kolkata' });
-    const tick = () => { clock.textContent = fmt.format(new Date()).toLowerCase() + ' IST'; };
-    tick(); setInterval(tick, 15000);
+    const fmt = new Intl.DateTimeFormat('en-IN', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true, timeZone: 'Asia/Kolkata' });
+    const tick = () => {
+      clock.textContent = fmt.format(new Date()).toLowerCase() + ' IST';
+      setTimeout(tick, 1000 - (Date.now() % 1000) + 5);
+    };
+    tick();
   }
 
 })();
