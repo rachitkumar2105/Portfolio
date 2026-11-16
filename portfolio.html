@@ -229,6 +229,7 @@ footer a:hover{color:#fff}
 .tile ul li{margin-bottom:0.2625rem}
 .tile .repo{display:inline-flex;align-items:center;gap:0.35rem;color:var(--text);font-size:0.6562rem;margin-top:0.175rem}
 .tile .repo:hover{text-decoration:underline;text-underline-offset:0.175rem}
+.tile .links{display:flex;flex-wrap:wrap;gap:0.35rem 0.9625rem;align-items:center}
 .tags{display:flex;flex-wrap:wrap;gap:0.2625rem;list-style:none;margin:0;padding:0}
 .tags li{font-family:var(--mono);font-size:0.525rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:43.7062rem;padding:0.2188rem 0.4375rem}
 
@@ -892,7 +893,7 @@ html{font-size:clamp(1rem, min(0.8334vw, 1.4815vh), 1.75rem)}
   </section>
 
   <section class="wrap sec" id="projects" aria-labelledby="projects-title">
-    <div class="head"><h2 class="rv" id="projects-title">More projects</h2><p class="rv">Earlier projects. Drag to browse.</p></div>
+    <div class="head"><h2 class="rv" id="projects-title">More projects</h2><p class="rv">In order of priority. The first three are live: free hosting may take up to a minute to wake. Drag to browse.</p></div>
     <div class="filters rv" role="group" aria-label="Filter projects">
       <button type="button" data-filter="all" aria-pressed="true">All</button>
       <button type="button" data-filter="backend" aria-pressed="false">Backend</button>
@@ -901,59 +902,68 @@ html{font-size:clamp(1rem, min(0.8334vw, 1.4815vh), 1.75rem)}
     </div>
     <div class="rail rv" id="project-rail" data-speed="39" tabindex="0" aria-label="More projects, scrolls horizontally">
       <div class="track" id="project-grid">
+      <article class="tile tilt" data-cat="fullstack backend">
+        <div class="k"><span>01</span><span>Full stack</span></div>
+        <h3>HeyChat</h3>
+        <p class="d">A real-time one-to-one chat app with photos, voice notes, read ticks and strong security.</p>
+        <p class="m" style="margin:0">22 end-to-end tests · live on Vercel and Render</p>
+        <ul class="tags"><li>React</li><li>TypeScript</li><li>Socket.IO</li><li>Node.js</li><li>PostgreSQL</li></ul>
+        <details><summary>Details</summary><ul><li>Real-time chat over WebSockets with sent, delivered and read ticks, typing and online status</li><li>Photos and voice notes: images re-encoded to WebP with location data removed, voice converted to MP3 with a waveform</li><li>Secure login: Argon2id passwords, 15-minute access tokens, and refresh tokens that rotate and catch reuse</li><li>Only chat members can open a chat, checked inside the database; all 7 tables locked with row-level security</li><li>Reply, edit, delete for everyone, reactions, unread counts and safe retry of failed messages</li><li>22 end-to-end tests on real PostgreSQL plus a two-browser test; CI runs tests and audits on every commit</li></ul></details>
+        <div class="links"><a class="repo live" href="https://hey-chat-three.vercel.app" target="_blank" rel="noopener">Live app<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="sr-only"> for HeyChat (opens in a new tab)</span></a><a class="repo" href="https://github.com/rachitkumar2105/HeyChat" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repository<span class="sr-only"> for HeyChat (opens GitHub)</span></a></div>
+      </article>
+      <article class="tile tilt" data-cat="fullstack ai">
+        <div class="k"><span>02</span><span>Full stack · AI</span></div>
+        <h3>SupportGPT</h3>
+        <p class="d">An AI help desk that answers from a help center with sources, says no when it does not know, and hands the rest to human agents.</p>
+        <p class="m" style="margin:0">100% top-3 retrieval · 14/14 off-topic questions declined</p>
+        <ul class="tags"><li>Python</li><li>FastAPI</li><li>React</li><li>TypeScript</li><li>RAG</li></ul>
+        <details><summary>Details</summary><ul><li>Combines keyword and meaning search; the right article is in the top 3 for all 54 test questions</li><li>Declines instead of guessing: all 14 off-topic questions were declined in testing</li><li>Every answer cites its source; unanswered questions become tickets that AI sorts by category and priority</li><li>Agent queue, reply drafts, SLA deadlines, customer ratings and an admin area with an audit log</li><li>Secure login with rotating tokens, CSRF protection, customer, agent and admin roles, and rate limits</li><li>51 tests at 92% coverage; CI runs security scans and deploys the backend on every push</li></ul></details>
+        <div class="links"><a class="repo live" href="https://support-gpt.vercel.app" target="_blank" rel="noopener">Live app<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="sr-only"> for SupportGPT (opens in a new tab)</span></a><a class="repo" href="https://github.com/rachitkumar2105/SupportGPT" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repository<span class="sr-only"> for SupportGPT (opens GitHub)</span></a></div>
+      </article>
       <article class="tile tilt" data-cat="backend">
-        <div class="k"><span>01</span><span>Backend</span></div>
+        <div class="k"><span>03</span><span>Backend</span></div>
         <h3>APIWatch</h3>
-        <p class="d">A secure REST API with login, safe updates and live monitoring.</p>
-        <p class="m" style="margin:0">49 tests · 98.63% coverage</p>
-        <ul class="tags"><li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>Prometheus</li></ul>
-        <details><summary>Details</summary><ul><li>Secure login, with each user seeing only their own data</li><li>Stops two people from overwriting each other's changes</li><li>Safe to retry a request without creating duplicates</li><li>Code style and test coverage are checked before every merge</li><li>Live dashboards for speed and errors (Prometheus and Grafana)</li><li>Works with SQLite and PostgreSQL without code changes</li></ul></details>
-        <a class="repo" href="https://github.com/rachitkumar2105/APIWatch" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repository<span class="sr-only"> for APIWatch (opens GitHub)</span></a>
+        <p class="d">A task REST API that stays correct when requests are retried or two people edit at once, with a live demo board.</p>
+        <p class="m" style="margin:0">82 tests · 98% coverage</p>
+        <ul class="tags"><li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>Docker</li><li>Prometheus</li></ul>
+        <details><summary>Details</summary><ul><li>Safe to retry: sending the same request twice never creates a duplicate task</li><li>No lost updates: an old edit gets a clear conflict error instead of overwriting newer changes</li><li>Secure login, each user sees only their own tasks, plus rate limits and security headers</li><li>The demo board shows every API call live, with buttons that replay a duplicate request and an old save</li><li>Health checks and Prometheus metrics, with Grafana dashboards</li><li>82 tests at 98% coverage; CI checks style, tests and security, and boots the production Docker image</li></ul></details>
+        <div class="links"><a class="repo live" href="https://apiwatch-rachit.vercel.app" target="_blank" rel="noopener">Live app<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="sr-only"> for APIWatch (opens in a new tab)</span></a><a class="repo" href="https://github.com/rachitkumar2105/APIWatch" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repository<span class="sr-only"> for APIWatch (opens GitHub)</span></a></div>
       </article>
       <article class="tile tilt" data-cat="fullstack">
-        <div class="k"><span>02</span><span>Full stack</span></div>
+        <div class="k"><span>04</span><span>Full stack</span></div>
         <h3>Smart Policy Recommendation Engine</h3>
         <p class="d">Recommends insurance policies using clear rules and a machine learning price estimate.</p>
         <p class="m" style="margin:0">45 tests · R² 0.87 held-out</p>
         <ul class="tags"><li>React</li><li>TypeScript</li><li>FastAPI</li><li>Docker</li></ul>
         <details><summary>Details</summary><ul><li>Filters, scores and ranks policies, and explains why</li><li>Price model scores R² 0.87 on data it never saw</li><li>45 automated tests covering 95%+ of the code</li><li>Security scans and Docker builds run automatically</li><li>4 services in Docker, tested with 50 users at once</li></ul></details>
-        <a class="repo" href="https://github.com/rachitkumar2105/Smart-Policy-Recommendation-Engine" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repository<span class="sr-only"> for Smart Policy Recommendation Engine (opens GitHub)</span></a>
+        <div class="links"><a class="repo" href="https://github.com/rachitkumar2105/Smart-Policy-Recommendation-Engine" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repository<span class="sr-only"> for Smart Policy Recommendation Engine (opens GitHub)</span></a></div>
       </article>
       <article class="tile tilt" data-cat="ai">
-        <div class="k"><span>03</span><span>AI / ML</span></div>
+        <div class="k"><span>05</span><span>AI / ML</span></div>
         <h3>AI Resume Screening Assistant</h3>
         <p class="d">Sorts resumes into 21 job types and matches them to job descriptions.</p>
         <p class="m" style="margin:0">67.4% accuracy · 472 held-out resumes</p>
         <ul class="tags"><li>PyTorch</li><li>spaCy</li><li>FastAPI</li><li>React</li></ul>
         <details><summary>Details</summary><ul><li>Reads and cleans resume text with spaCy</li><li>A PyTorch model trained on 2,362 resumes</li><li>67.4% accuracy on 472 resumes it never saw</li><li>Matches candidates to job descriptions</li><li>FastAPI backend with a React website</li></ul></details>
-        <a class="repo" href="https://github.com/rachitkumar2105/AI-Resume-Screening-Assistant" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repository<span class="sr-only"> for AI Resume Screening Assistant (opens GitHub)</span></a>
+        <div class="links"><a class="repo" href="https://github.com/rachitkumar2105/AI-Resume-Screening-Assistant" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repository<span class="sr-only"> for AI Resume Screening Assistant (opens GitHub)</span></a></div>
       </article>
       <article class="tile tilt" data-cat="ai">
-        <div class="k"><span>04</span><span>AI / ML</span></div>
+        <div class="k"><span>06</span><span>AI / ML</span></div>
         <h3>Fresh ScanX</h3>
         <p class="d">Tells if fruit is fresh from a photo, with instant results in the browser.</p>
         <p class="m" style="margin:0">CNN · about 16,000 training images</p>
         <ul class="tags"><li>TensorFlow</li><li>CNN</li><li>FastAPI</li><li>React</li></ul>
         <details><summary>Details</summary><ul><li>Classifies fruit as fresh or not from a photo</li><li>Gives results instantly</li><li>Simple web interface</li></ul></details>
-        <a class="repo" href="https://github.com/rachitkumar2105/Fresh-Scan-X" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repository<span class="sr-only"> for Fresh ScanX (opens GitHub)</span></a>
+        <div class="links"><a class="repo" href="https://github.com/rachitkumar2105/Fresh-Scan-X" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repository<span class="sr-only"> for Fresh ScanX (opens GitHub)</span></a></div>
       </article>
       <article class="tile tilt" data-cat="ai">
-        <div class="k"><span>05</span><span>AI / ML</span></div>
-        <h3>SupportGPT</h3>
-        <p class="d">Ask questions about your documents and get answers from their content.</p>
-        <p class="m" style="margin:0">Multi-document RAG</p>
-        <ul class="tags"><li>Python</li><li>FastAPI</li><li>RAG</li><li>LLMs</li></ul>
-        <details><summary>Details</summary><ul><li>Ask questions in plain English across many documents</li><li>Finds the most relevant parts of each document</li><li>Uses an AI model to write the answer</li></ul></details>
-        <a class="repo" href="https://github.com/rachitkumar2105/SupportGPT" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repository<span class="sr-only"> for SupportGPT (opens GitHub)</span></a>
-      </article>
-      <article class="tile tilt" data-cat="ai">
-        <div class="k"><span>06</span><span>AI / ML</span></div>
+        <div class="k"><span>07</span><span>AI / ML</span></div>
         <h3>SugarSense</h3>
         <p class="d">Estimates diabetes risk from basic health details.</p>
         <p class="m" style="margin:0">Risk prediction</p>
         <ul class="tags"><li>Python</li><li>scikit-learn</li><li>React</li></ul>
         <details><summary>Details</summary><ul><li>Predicts diabetes risk</li><li>Cleans and prepares health data</li><li>Simple web app</li></ul></details>
-        <a class="repo" href="https://github.com/rachitkumar2105/Sugar-Sense" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repository<span class="sr-only"> for SugarSense (opens GitHub)</span></a>
+        <div class="links"><a class="repo" href="https://github.com/rachitkumar2105/Sugar-Sense" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repository<span class="sr-only"> for SugarSense (opens GitHub)</span></a></div>
       </article>
       </div>
     </div>
@@ -1143,6 +1153,6 @@ html{font-size:clamp(1rem, min(0.8334vw, 1.4815vh), 1.75rem)}
   </div>
 </footer>
 
-<script src="site.js?v=20" defer></script>
+<script src="site.js?v=21" defer></script>
 </body>
 </html>
