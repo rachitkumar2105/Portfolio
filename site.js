@@ -112,12 +112,14 @@
     rail.addEventListener('pointerdown', e => {
       if (e.pointerType !== 'mouse' || e.button !== 0) return;
       st.drag = true; moved = 0; startX = e.clientX; startLeft = rail.scrollLeft;
-      rail.setPointerCapture(e.pointerId);
     });
     rail.addEventListener('pointermove', e => {
       if (!st.drag) return;
       const dx = e.clientX - startX; moved = Math.max(moved, Math.abs(dx));
-      if (moved > 4) rail.classList.add('dragging');
+      if (moved > 4 && !rail.classList.contains('dragging')) {
+        rail.classList.add('dragging');
+        try { rail.setPointerCapture(e.pointerId); } catch {}
+      }
       rail.scrollLeft = startLeft - dx;
       const before = rail.scrollLeft; normalise(); startLeft += rail.scrollLeft - before;
       st.pos = rail.scrollLeft; st.v = 0;
@@ -129,6 +131,8 @@
       if (moved > 4) rail.blur();
     };
     rail.addEventListener('pointerup', end); rail.addEventListener('pointercancel', end);
+    window.addEventListener('pointerup', end);
+    rail.addEventListener('dragstart', e => e.preventDefault());
     rail.addEventListener('click', e => { if (moved > 4) { e.preventDefault(); e.stopPropagation(); moved = 0; } }, true);
 
     rail.addEventListener('keydown', e => {
