@@ -179,7 +179,7 @@
     const f = b.dataset.filter;
     buttons.forEach(x => x.setAttribute('aria-pressed', String(x === b)));
     if (!projects) return;
-    projects.originals.forEach(t => t.classList.toggle('hide', !(f === 'all' || t.dataset.cat === f)));
+    projects.originals.forEach(t => t.classList.toggle('hide', !(f === 'all' || t.dataset.cat.split(' ').includes(f))));
     projects.rebuild();
   }));
 })();
